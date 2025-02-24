@@ -1,9 +1,36 @@
-import React from 'react';
-import { Building2, Users2, BarChart3, Globe2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Building2, Users2, BarChart3, Globe2, Moon, Sun } from 'lucide-react';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Effect to apply dark mode class to body
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    setDarkMode(prevMode => !prevMode);
+  };
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-white'} transition-colors duration-300`}>
+      {/* Dark Mode Toggle */}
+      <div className="absolute top-4 right-4 z-10">
+        <button 
+          onClick={toggleDarkMode}
+          className={`p-2 rounded-full ${darkMode ? 'bg-gray-700 text-yellow-300' : 'bg-gray-200 text-gray-800'} transition-colors duration-300`}
+          aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+        >
+          {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+        </button>
+      </div>
+      
       {/* Hero Section */}
       <section className="relative h-screen">
         <div className="absolute inset-0">
@@ -40,13 +67,13 @@ function App() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-50">
+      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'} transition-colors duration-300`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+            <h2 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} sm:text-4xl transition-colors duration-300`}>
               Why Choose Us
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className={`mt-4 text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} transition-colors duration-300`}>
               We deliver exceptional results through our comprehensive suite of services
             </p>
           </div>
@@ -76,15 +103,15 @@ function App() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+                className={`${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-white hover:shadow-md'} p-6 rounded-xl shadow-sm transition-all duration-300`}
               >
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-4">
+                <div className={`w-12 h-12 ${darkMode ? 'bg-blue-900 text-blue-300' : 'bg-blue-100 text-blue-600'} rounded-lg flex items-center justify-center mb-4 transition-colors duration-300`}>
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className={`text-xl font-semibold ${darkMode ? 'text-white' : 'text-gray-900'} mb-2 transition-colors duration-300`}>
                   {feature.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} transition-colors duration-300`}>
                   {feature.description}
                 </p>
               </div>
