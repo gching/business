@@ -1,14 +1,20 @@
 import React from 'react';
 import { Building2, Users2, BarChart3, Globe2 } from 'lucide-react';
+import { ThemeToggle } from './components/ThemeToggle';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* Header with Theme Toggle */}
+      <header className="fixed top-0 right-0 p-4 z-50">
+        <ThemeToggle />
+      </header>
+
       {/* Hero Section */}
       <section className="relative h-screen">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+            src="/api/placeholder/1920/1080"
             alt="Office"
             className="w-full h-full object-cover"
           />
@@ -30,7 +36,7 @@ function App() {
                 <button className="bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
                   Get Started
                 </button>
-                <button className="bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                <button className="bg-white text-gray-900 dark:bg-gray-800 dark:text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
                   Learn More
                 </button>
               </div>
@@ -40,13 +46,13 @@ function App() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
               Why Choose Us
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
               We deliver exceptional results through our comprehensive suite of services
             </p>
           </div>
@@ -76,15 +82,15 @@ function App() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-4">
+                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-300 mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-300">
                   {feature.description}
                 </p>
               </div>
