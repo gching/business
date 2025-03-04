@@ -1,12 +1,9 @@
 import React from 'react';
 import { Building2, Users2, BarChart3, Globe2 } from 'lucide-react';
-import Header from './components/Header';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
-      <Header />
-      
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-screen">
         <div className="absolute inset-0">
@@ -19,7 +16,7 @@ function App() {
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-          <div className="flex flex-col justify-center h-full pt-16">
+          <div className="flex flex-col justify-center h-full">
             <div className="text-center">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
                 Transform Your Business
@@ -43,13 +40,13 @@ function App() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl transition-colors">
+            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
               Why Choose Us
             </h2>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 transition-colors">
+            <p className="mt-4 text-lg text-gray-600">
               We deliver exceptional results through our comprehensive suite of services
             </p>
           </div>
@@ -79,15 +76,15 @@ function App() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition-all"
+                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-300 mb-4 transition-colors">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 transition-colors">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 transition-colors">
+                <p className="text-gray-600">
                   {feature.description}
                 </p>
               </div>
